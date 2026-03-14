@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ananya J | Portfolio</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #f4f7fb);
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+
+header {
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+    transition: 0.4s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+header p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 0;
+}
+
+.section {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+    animation: fadeIn 1s ease forwards;
+}
+
+.section:hover {
+    transform: translateY(-5px);
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #1f4037;
+    border-bottom: 3px solid #1f4037;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.edu-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.edu-right {
+    font-weight: bold;
+}
+
+
+.project-card {
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+}
+
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-badge {
+    background: #1f4037;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.skill-badge:hover {
+    background: #99f2c8;
+    color: #1f4037;
+}
+
+
+a {
+    text-decoration: none;
+    color: #1f4037;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #0d5c46;
+}
+
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #1f4037;
+    color: white;
+    margin-top: 40px;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    .profile-pic {
+        width: 140px;
+        height: 140px;
+    }
+
+    .edu-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .section {
+        padding: 20px;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+   
+    <img src="Ananya.jpg" alt="Ananya J Photo" class="profile-pic">
+
+    <h1>Ananya J</h1>
+    <p>Computer Science Engineer | Web Developer | AI Enthusiast</p>
+    <p>
+        Belagavi, Karnataka |
+        📧 <a href="mailto:jananya395@gmail.com" style="color:white;">jananya395@gmail.com</a> |
+        🔗 <a href="https://github.com/AnanyaJ98" style="color:white;">GitHub</a> |
+        💼 <a href="https://www.linkedin.com/in/ananya-j-891a212b1?fromQR=1" style="color:white;">LinkedIn</a>
+    </p>
+
+</header>
+
+<div class="container">
+
+    <div class="section">
+        <h2>Professional Summary</h2>
+        <p>
+            Computer Science engineer skilled in Java, JavaScript, MERN with hands-on experience
+            building data-driven web applications and AI-powered projects like Kannada speech automation
+            and multilingual text extraction. Demonstrated ability to translate technical knowledge
+            into tangible solutions, evidenced by a peer-reviewed IEEE publication and ongoing
+            contributions in internships.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+
+        <div class="edu-row">
+            <div>
+                <strong>Bachelor of Engineering in Computer Science</strong><br>
+                Jain College of Engineering and Research, Belagavi (2022–Present)
+            </div>
+            <div class="edu-right">CGPA: 8.68</div>
+        </div>
+
+        <div class="edu-row">
+            <div>
+                <strong>Pre University</strong><br>
+                KLE Independent PU College, Belagavi (2019–2021)
+            </div>
+            <div class="edu-right">Percentage: 93%</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Projects</h2>
+       <div class="project-card">
+    <strong>Bank Form Automation using Kannada Speech Recognition</strong>
+    <p>Voice-driven system published in IEEE Xplore for automated bank form filling.</p>
+</div>
+
+<div class="project-card">
+    <strong>Student Data Management System</strong>
+    <p>Full-stack application with real-time SMS alerts using Twilio.</p>
+</div>
+
+<div class="project-card">
+    <strong>TimeLens AI Platform</strong>
+    <p>AI-based manuscript and monument recognition system supporting multiple languages.</p>
+</div>
+    </div>
+
+    <div class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills">
+    <div class="skill-badge">Java</div>
+    <div class="skill-badge">JavaScript</div>
+    <div class="skill-badge">MongoDB</div>
+    <div class="skill-badge">SQL</div>
+    <div class="skill-badge">HTML</div>
+    <div class="skill-badge">CSS</div>
+    <div class="skill-badge">MERN Stack</div>
+    <div class="skill-badge">Flask</div>
+    <div class="skill-badge">Git</div>
+    <div class="skill-badge">Twilio</div>
+</div>
+
+    </div>
+
+</div>
+
+<footer>
+    Ananya J - Portfolio Website
+</footer>
+
+</body>
+</html>

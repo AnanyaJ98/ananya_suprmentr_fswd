@@ -1,0 +1,64 @@
+
+Website Chosen: YouTube
+
+Identified Components
+
+Header (Logo, Search bar, Profile icon)
+
+Sidebar / Navigation Menu
+
+Video Content Grid
+
+Individual Video Card Component
+
+Footer
+
+Simple Structure Sketch
+
+
+YouTube Website (Component Structure)
+
+App
+│
+├── Navbar
+│   ├── Logo
+│   ├── Search Bar
+│   ├── Voice Search Button
+│   ├── Upload Button
+│   ├── Notifications
+│   └── User Profile Icon
+│
+├── Sidebar
+│   ├── Home
+│   ├── Shorts
+│   ├── Subscriptions
+│   ├── Library
+│   ├── History
+│   └── Trending
+│
+├── Main Content
+│   ├── Category Filter Bar
+│   │   ├── All
+│   │   ├── Music
+│   │   ├── Gaming
+│   │   ├── News
+│   │   └── Live
+│   │
+│   └── Video Grid
+│       ├── Video Card
+│       │   ├── Thumbnail
+│       │   ├── Video Title
+│       │   ├── Channel Name
+│       │   ├── Views Count
+│       │   └── Upload Time
+│       │
+│       ├── Video Card
+│       ├── Video Card
+│       └── Video Card
+│
+└── Footer
+    ├── About
+    ├── Contact
+    ├── Privacy Policy
+    └── Terms
+

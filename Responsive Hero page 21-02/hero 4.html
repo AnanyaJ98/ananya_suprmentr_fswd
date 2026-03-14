@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Landing Page</title>
+  <style>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  position: relative;
+  flex-wrap: wrap;
+  background-color: #111;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:visited,
+.nav-links a:link,
+.nav-links a:active {
+  color: white;
+}
+
+.nav-links a:hover {
+  color: #ff6600;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+   background-image: url('counter-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: black;
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #f4f4f4; 
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background: #ff6600;
+  padding: 10px 25px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  
+}
+.gap{
+    margin: 20px;
+}
+
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+}
+
+.social-icons a:hover {
+  margin: 0 10px;
+  color:#ff6600;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    background-color: #333;
+    width: 100%;
+    display: none;
+    margin-top: 10px;
+  }
+
+  #menu-toggle:checked + .menu-icon + nav .nav-links {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+.features {
+  background-image: url('fed.jpg');
+  padding: 20px 20px;
+  text-align: center;
+  width: 100vw; 
+  margin: 0;
+}
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.features-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.feature-box {
+  background: #111;
+  padding: 20px;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+  color: #fff;
+}
+
+h3{
+    color: #ff6600;
+}
+.btn:hover {
+  background: #e65c00;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+  .feature-box {
+    width: 90%;
+  }
+}
+</style>
+</head>
+<body>
+
+ 
+  <header>
+    <div class="logo"><img src="favicon.png" height="35px" width="35px">&nbsp;<b style="color: #ff6600;">My</b>NEXUS</div>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#" style="text-decoration: none;">Home</a></li>
+        <li><a href="#" style="text-decoration: none;">Features</a></li>
+        <li><a href="#" style="text-decoration: none;">About</a></li>
+        <li><a href="#" style="text-decoration: none;">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+   <section>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Our Website</h1>
+      <p>Discover the best way to grow your business with us.</p>
+      <a href="#" class="btn">Get Started</a>
+       <p class="gap">⭐⭐⭐⭐⭐ Rated 4.5/5 from 10,000+ users</p>
+    </div>
+  </section>
+  <section class="features gap" >
+  <h2 style="text-align: center;color:white;">Why Choose Us?</h2>
+  <div class="features-grid">
+    <div class="feature-box">
+      <h3>Fast</h3>
+      <p>Lightning fast performance with top-tier optimization.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Secure</h3>
+      <p>Your data is encrypted and protected 24/7.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Reliable</h3>
+      <p>Trusted by over 10,000 users worldwide.</p>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer>
+    <p>Contact Us</p><br>
+    <div class="social-icons">
+      <a href="#"><img src="Fb.png" height="50px" width="50px"></a>
+      <a href="#"><img src="google.png" height="50px" width="50px"></a>
+      <a href="#"><img src="social.png" height="50px" width="50px"></a>
+      <a href="#"><img src="twitter.png" height="50px" width="50px"></a>
+    </div>
+    <p>&copy; 2025 MyNEXUS. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
