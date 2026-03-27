@@ -1,0 +1,76 @@
+
+Folder tree/architecture:
+
+Folder_Architect
+│
+├── Personal
+│   ├── Documents
+│   │   ├── Resume.docx
+│   │   └── ID_Proof.pdf
+│   │
+│   ├── Photos
+│   │   ├── Family
+│   │   └── Friends
+│   │
+│   └── Certificates
+│       ├── Academic
+│       └── Extra_Curricular
+│
+├── Academic
+│   ├── Notes
+│   │   ├── DBMS
+│   │   ├── Operating_System
+│   │   ├── Computer_Networks
+│   │   └── Data_Structures
+│   │
+│   ├── Assignments
+│   │   ├── DBMS
+│   │   └── OS
+│   │
+│   └── Projects
+│       ├── Mini_Project
+│       └── Final_Year_Project
+│
+├── Software
+│   ├── Installers
+│   └── Tools
+│
+└── Misc
+
+
+
+                Folder_Architect
+                 /    |    |    \
+         Personal  Academic  Software  Misc
+           /   \        |         |
+   Documents  Photos   Notes   Installers
+                |         |
+             Family     DBMS
+
+
+-> Title: Folder Architect – Retrieving Data Efficiently
+
+- Introduction
+  Folder Architect is a method of organizing files and folders in a structured way so that data can be easily stored and retrieved. Proper folder organization helps in reducing time, avoiding confusion, and improving productivity.
+
+-Folder Structure Design
+ Folders are organized into main categories such as Personal, Academic, Software, and Miscellaneous. Each main folder contains subfolders based on type and purpose of files.
+
+ The Personal folder contains documents, photos, and certificates.
+ The Academic folder is divided into notes, assignments, and projects for different subjects.
+ The Software folder stores installation files and tools.
+ The Misc folder is used for temporary or uncategorized files.
+
+ This hierarchical structure ensures that files are logically grouped   
+
+-Retrieving data becomes easy because each file is placed in a specific location.
+ Examples:
+
+To find DBMS notes:
+→ Academic → Notes → DBMS
+To find Resume:
+→ Personal → Documents
+To find Mini Project files:
+→ Academic → Projects → Mini_Project
+
+-Because of clear categorization, users do not need to search randomly. They can directly navigate through the folder path.
