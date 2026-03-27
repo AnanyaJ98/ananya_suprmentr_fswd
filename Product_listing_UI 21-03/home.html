@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>AJ Mart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Roboto', sans-serif;
+      background-color: #f1f3f6;
+      color: #212121;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .flipkart-header {
+      background-color: #ffffff;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+      padding: 12px 0;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .flipkart-logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #2874f0;
+      letter-spacing: -0.5px;
+    }
+    .explore-plus {
+      font-size: 11px;
+      font-weight: 500;
+      color: #878787;
+      margin-left: 2px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .plus-icon {
+      color: #ffd700;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .search-container {
+      flex: 1;
+      max-width: 560px;
+      min-width: 280px;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #f0f2f5;
+      border-radius: 8px;
+      padding: 8px 16px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .search-bar:focus-within {
+      background-color: #fff;
+      border-color: #2874f0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .search-icon {
+      color: #878787;
+      font-size: 18px;
+      margin-right: 12px;
+    }
+    .search-bar input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      font-weight: 500;
+      outline: none;
+      font-family: inherit;
+    }
+    .search-bar input::placeholder {
+      color: #878787;
+      font-weight: 400;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .action-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      font-size: 15px;
+      cursor: pointer;
+      color: #2c2c2c;
+      transition: color 0.1s;
+    }
+    .action-item i {
+      font-size: 18px;
+      color: #5e5e5e;
+    }
+    .action-item:hover {
+      color: #2874f0;
+    }
+    .cart-icon {
+      font-weight: 600;
+    }
+
+    .category-nav {
+      background-color: #ffffff;
+      border-bottom: 1px solid #eaeaec;
+      padding: 10px 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .category-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px 32px;
+      list-style: none;
+    }
+    .category-list li {
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      color: #212121;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .category-list li i {
+      font-size: 14px;
+      color: #2874f0;
+    }
+    .category-list li:hover {
+      color: #2874f0;
+    }
+
+    .carousel-wrapper {
+      margin: 16px 0 20px 0;
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+    }
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      height: 100%;
+    }
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+   
+    .slide-1 { background: linear-gradient(97deg, #0b5cad, #2874f0); }
+    .slide-2 { background: linear-gradient(112deg, #1e3c72, #2b4f8c); }
+    .slide-3 { background: linear-gradient(135deg, #f7971e, #ffd200); }
+    .slide-content {
+      text-align: center;
+    }
+    .slide-content h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .slide-content p {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.85);
+      border: none;
+      width: 42px;
+      height: 80px;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      font-size: 28px;
+      font-weight: bold;
+      color: #2874f0;
+      transition: 0.2s;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-btn.right {
+      right: 0;
+      border-radius: 8px 0 0 8px;
+    }
+    .carousel-btn:hover {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .dots {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: rgba(255,255,255,0.6);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .dot.active {
+      background-color: #2874f0;
+      width: 24px;
+      border-radius: 12px;
+    }
+
+    .section {
+      background: #ffffff;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eaeef2;
+      padding-bottom: 12px;
+    }
+    .section-title {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #1f1f1f;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .deal-timer {
+      font-size: 14px;
+      background: #fff2e5;
+      padding: 6px 12px;
+      border-radius: 24px;
+      color: #e9452c;
+      font-weight: 600;
+    }
+    .view-all {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2874f0;
+      cursor: pointer;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 24px 16px;
+    }
+    .product-card {
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-align: center;
+      padding: 12px 8px;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .product-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+    .product-img {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 12px;
+      background-color: #f8f9fc;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-img img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    .product-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin: 8px 0 4px;
+      color: #212121;
+    }
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .current-price {
+      font-weight: 700;
+      font-size: 16px;
+      color: #212121;
+    }
+    .old-price {
+      font-size: 12px;
+      color: #878787;
+      text-decoration: line-through;
+    }
+    .discount {
+      font-size: 12px;
+      font-weight: 600;
+      color: #388e3c;
+    }
+    .brand-offer {
+      background: #ffece5;
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 14px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #e9452c;
+      margin-top: 6px;
+    }
+
+    .scrollable-row {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 8px;
+      scrollbar-width: thin;
+    }
+    .scrollable-row .product-card {
+      min-width: 200px;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      background-color: #172337;
+      color: #ffffff;
+      margin-top: 40px;
+      padding: 40px 0 20px;
+      font-size: 12px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: #878787;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li {
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 12px;
+      color: #fff;
+      transition: 0.1s;
+    }
+    .footer-col li:hover {
+      text-decoration: underline;
+      color: #2874f0;
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 32px;
+      color: #6b6f78;
+      border-top: 1px solid #2a3a54;
+      margin-top: 32px;
+      font-size: 12px;
+    }
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .search-container {
+        max-width: 100%;
+      }
+      .header-actions {
+        justify-content: space-evenly;
+      }
+      .category-list {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+      .carousel-container {
+        height: 180px;
+      }
+      .section-title {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="flipkart-header">
+  <div class="container header-content">
+  
+    <div class="logo-area">
+      <span class="flipkart-logo">AJ Mart</span>
+      <div class="explore-plus">
+        <span>Explore</span>
+        <span class="plus-icon">Plus</span>
+        <i class="fas fa-angle-down" style="font-size: 10px;"></i>
+      </div>
+    </div>
+
+    
+    <div class="search-container">
+      <div class="search-bar">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search for products, brands and more">
+        <i class="fas fa-microphone" style="color:#2874f0; font-size: 18px; cursor: pointer;"></i>
+      </div>
+    </div>
+
+   
+    <div class="header-actions">
+      <div class="action-item">
+        <i class="fas fa-store"></i>
+        <span>Become a Seller</span>
+      </div>
+      <div class="action-item">
+        <i class="fas fa-user-circle"></i>
+        <span>Sign In</span>
+      </div>
+      <div class="action-item cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Cart</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="category-nav">
+  <div class="container">
+    <ul class="category-list">
+      <li><i class="fas fa-mobile-alt"></i> Mobiles</li>
+      <li><i class="fas fa-laptop"></i> Electronics</li>
+      <li><i class="fas fa-tshirt"></i> Fashion</li>
+      <li><i class="fas fa-couch"></i> Home & Furniture</li>
+      <li><i class="fas fa-apple-alt"></i> Grocery</li>
+      <li><i class="fas fa-plane"></i> Travel</li>
+      <li><i class="fas fa-motorcycle"></i> Two Wheelers</li>
+      <li><i class="fas fa-gem"></i> Top Offers</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+ 
+  <div class="carousel-wrapper">
+    <div class="carousel-container">
+      <div class="carousel-slides" id="carouselSlides">
+        <div class="slide slide-1">
+          <div class="slide-content">
+            <h2>Fat Trillion Days</h2>
+            <p>Up to 80% off + Exchange Offers</p>
+          </div>
+        </div>
+        <div class="slide slide-2">
+          <div class="slide-content">
+            <h2>Electronics Fest</h2>
+            <p>Latest mobiles & laptops at best price</p>
+          </div>
+        </div>
+        <div class="slide slide-3">
+          <div class="slide-content">
+            <h2>Fashion Mega Sale</h2>
+            <p>Min 50% off on brands</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn left" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+      <button class="carousel-btn right" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+      <div class="dots" id="dotsContainer"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">
+        <span>Deals of the Day</span>
+        <div class="deal-timer" id="timerDisplay">23:59:59</div>
+      </div>
+      <div class="view-all">View All <i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="scrollable-row">
+     
+      <div class="product-card">
+        <div class="product-img"><img src="realme2.jpg" alt="product"></div>
+        <div class="product-title">Realme Smartphone</div>
+        <div class="price-row"><span class="current-price">₹12,999</span><span class="old-price">₹24,999</span><span class="discount">48% off</span></div>
+        <div class="brand-offer">Bank Offer</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="boat.jpg" alt="product"></div>
+        <div class="product-title">boAt Airdopes</div>
+        <div class="price-row"><span class="current-price">₹1,299</span><span class="old-price">₹3,999</span><span class="discount">67% off</span></div>
+        <div class="brand-offer">No Cost EMI</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="smart_watch.jpg" alt="product"></div>
+        <div class="product-title">Smart Watch Pro</div>
+        <div class="price-row"><span class="current-price">₹2,499</span><span class="old-price">₹7,999</span><span class="discount">69% off</span></div>
+        <div class="brand-offer">Limited Deal</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="denim.jpg" alt="product"></div>
+        <div class="product-title">Men's Denim Jacket</div>
+        <div class="price-row"><span class="current-price">₹1,099</span><span class="old-price">₹3,499</span><span class="discount">68% off</span></div>
+        <div class="brand-offer">Extra 10%</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="oven2.jpg" alt="product"></div>
+        <div class="product-title">Microwave Oven</div>
+        <div class="price-row"><span class="current-price">₹8,990</span><span class="old-price">₹15,990</span><span class="discount">44% off</span></div>
+        <div class="brand-offer">Exchange Offer</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Best of Electronics</div>
+      <div class="view-all">View All</div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><div class="product-img"><img src="hp.jpg" alt="laptop"></div><div class="product-title">HP Laptop 15s</div><div class="price-row"><span class="current-price">₹42,990</span><span class="old-price">₹65,990</span><span class="discount">35% off</span></div></div>
+      <div class="product-card"><div class="product-img"><img src="canon.jpg" alt="camera"></div><div class="product-title">Canon EOS 1500D</div><div class="price-row"><span class="current-price">₹38,499</span><span class="old-price">₹49,999</span><span class="discount">23% off</span></div></div>
+      <div class="product-card"><div class="product-img"><img src="samsung.jpg" alt="monitor"></div><div class="product-title">Samsung 24" Monitor</div><div class="price-row"><span class="current-price">₹9,999</span><span class="old-price">₹15,999</span><span class="discount">37% off</span></div></div>
+      <div class="product-card"><div class="product-img"><img src="tab.jpg" alt="tablet"></div><div class="product-title">Samsung Tab A8</div><div class="price-row"><span class="current-price">₹12,999</span><span class="old-price">₹22,999</span><span class="discount">43% off</span></div></div>
+    </div>
+  </div>
+
+
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Fashion Hot Picks</div>
+      <div class="view-all">Explore Now</div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><div class="product-img"><img src="shirt.jpg" alt="shirt"></div><div class="product-title">Men Slim Shirt</div><div class="price-row"><span class="current-price">₹599</span><span class="old-price">₹1,999</span><span class="discount">70% off</span></div></div>
+      <div class="product-card"><div class="product-img"><img src="shoe.jpg" alt="sneakers"></div><div class="product-title">Running Sneakers</div><div class="price-row"><span class="current-price">₹1,299</span><span class="old-price">₹3,999</span><span class="discount">67% off</span></div></div>
+      <div class="product-card"><div class="product-img"><img src="watch.jpg" alt="watch"></div><div class="product-title">Fossil Analog Watch</div><div class="price-row"><span class="current-price">₹4,995</span><span class="old-price">₹12,995</span><span class="discount">62% off</span></div></div>
+      <div class="product-card"><div class="product-img"><img src="backpack.jpg" alt="bag"></div><div class="product-title">Travel Backpack</div><div class="price-row"><span class="current-price">₹899</span><span class="old-price">₹2,499</span><span class="discount">64% off</span></div></div>
+    </div>
+  </div>
+
+ 
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title">Home & Kitchen Essentials</div>
+      <div class="view-all">Shop Now</div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card"><div class="product-img"><img src="mixer.jpg" alt="mixer"></div><div class="product-title">Preethi Mixer Grinder</div><div class="price-row"><span class="current-price">₹3,999</span><span class="old-price">₹6,499</span><span class="discount">38% off</span></div></div>
+      <div class="product-card"><div class="product-img"><img src="cook.jpg" alt="cookware"></div><div class="product-title">Non-Stick Cookware Set</div><div class="price-row"><span class="current-price">₹1,899</span><span class="old-price">₹4,999</span><span class="discount">62% off</span></div></div>
+      <div class="product-card"><div class="product-img"><img src="bedsheet.jpg" alt="bed"></div><div class="product-title">Bedsheet Combo</div><div class="price-row"><span class="current-price">₹699</span><span class="old-price">₹2,199</span><span class="discount">68% off</span></div></div>
+      <div class="product-card"><div class="product-img"><img src="lamp.jpg" alt="lamp"></div><div class="product-title">Floor Lamp</div><div class="price-row"><span class="current-price">₹1,299</span><span class="old-price">₹3,499</span><span class="discount">63% off</span></div></div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col"><h4>ABOUT</h4><ul><li>Contact Us</li><li>About Us</li><li>Careers</li><li>Flipkart Stories</li><li>Press</li></ul></div>
+    <div class="footer-col"><h4>HELP</h4><ul><li>Payments</li><li>Shipping</li><li>Cancellation & Returns</li><li>FAQ</li><li>Report Infringement</li></ul></div>
+    <div class="footer-col"><h4>CONSUMER POLICY</h4><ul><li>Return Policy</li><li>Terms Of Use</li><li>Security</li><li>Privacy</li><li>Sitemap</li></ul></div>
+    <div class="footer-col"><h4>SOCIAL</h4><ul><li>Facebook</li><li>Twitter</li><li>Instagram</li><li>YouTube</li><li>WhatsApp</li></ul></div>
+  </div>
+  <div class="copyright">© 2026 AJ Mart | Original UI Design | All trademarks belong to respective owners</div>
+</footer>
+
+<script>
+ 
+  const slides = document.querySelectorAll('.slide');
+  const slidesContainer = document.getElementById('carouselSlides');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsContainer = document.getElementById('dotsContainer');
+  let currentIdx = 0;
+  const totalSlides = slides.length;
+  let autoInterval;
+
+  
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+  const dots = document.querySelectorAll('.dot');
+
+  function updateCarousel() {
+    slidesContainer.style.transform = `translateX(-${currentIdx * 100}%)`;
+    dots.forEach((dot, idx) => {
+      if (idx === currentIdx) dot.classList.add('active');
+      else dot.classList.remove('active');
+    });
+  }
+
+  function goToSlide(index) {
+    currentIdx = (index + totalSlides) % totalSlides;
+    updateCarousel();
+    resetAutoSlide();
+  }
+
+  function nextSlide() { goToSlide(currentIdx + 1); }
+  function prevSlide() { goToSlide(currentIdx - 1); }
+
+  function resetAutoSlide() {
+    if (autoInterval) clearInterval(autoInterval);
+    autoInterval = setInterval(() => { nextSlide(); }, 5000);
+  }
+
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
+  resetAutoSlide();
+
+
+  function getRemainingTime() {
+    const now = new Date();
+    const endOfDay = new Date(now);
+    endOfDay.setHours(23, 59, 59, 999);
+    let diff = endOfDay - now;
+    if (diff < 0) diff = 0;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (3600000)) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+    return `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+  }
+
+  const timerElem = document.getElementById('timerDisplay');
+  function updateTimer() {
+    if (timerElem) timerElem.innerText = getRemainingTime();
+  }
+  updateTimer();
+  setInterval(updateTimer, 1000);
+
+  const productCards = document.querySelectorAll('.product-card');
+  productCards.forEach(card => {
+    card.addEventListener('click', () => {
+      console.log('Product clicked (UI demo)');
+    });
+  });
+
+  const categories = document.querySelectorAll('.category-list li');
+  categories.forEach(cat => {
+    cat.addEventListener('click', () => {
+      console.log(`Category: ${cat.innerText} clicked (demo)`);
+    });
+  });
+
+  const searchInput = document.querySelector('.search-bar input');
+  if(searchInput) searchInput.addEventListener('focus', () => console.log('Search focused'));
+</script>
+</body>
+</html>
