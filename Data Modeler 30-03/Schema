@@ -1,0 +1,71 @@
+Schema Design:
+
+1. Users Collection:
+   {
+   _id: ObjectId,
+   username: String,
+   email: String,
+   password: String,
+   bio: String,
+   role: String,
+   createdAt: Date
+   }
+
+2. Posts Collection:
+   {
+   _id: ObjectId,
+   title: String,
+   content: String,
+   author: ObjectId,
+   categoryId: ObjectId,
+   tags: [String],
+   likes: Number,
+   views: Number,
+   createdAt: Date,
+   updatedAt: Date
+   }
+
+3. Comments Collection:
+   {
+   _id: ObjectId,
+   postId: ObjectId,
+   userId: ObjectId,
+   comment: String,
+   parentCommentId: ObjectId,
+   createdAt: Date
+   }
+
+4. Categories Collection:
+   {
+   _id: ObjectId,
+   name: String
+   }
+
+5. Likes Collection:
+   {
+   _id: ObjectId,
+   postId: ObjectId,
+   userId: ObjectId
+   }
+
+6. Bookmarks Collection:
+   {
+   _id: ObjectId,
+   userId: ObjectId,
+   postId: ObjectId,
+   savedAt: Date
+   }
+
+7. Views Collection:
+   {
+   _id: ObjectId,
+   postId: ObjectId,
+   userId: ObjectId,
+   viewedAt: Date
+   }
+
+
+Assignment (30/03/2026)
+
+Assignment Name : Data Modeler
+Description : Design a MongoDB schema for a blogging platform.
